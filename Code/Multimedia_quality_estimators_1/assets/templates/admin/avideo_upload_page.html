@@ -1,0 +1,54 @@
+{% extends 'admin/base1.html' %}
+{% block adminblock %}
+{% load staticfiles %}
+    <style>
+        .giver
+          {
+          color: darkgrey;
+          font-family: Abel;
+          padding: 50px;
+          margin-right: 500px;
+          font-size:20px;
+          }
+          .space
+      {
+            padding:10px;
+            border-radius:10px;
+      }
+      input {
+    padding: 10px 10px;
+    border-radius:10px;
+    font-family:Abel;
+    font-size:20px;
+
+}
+
+
+    </style>
+</head>
+<body>
+
+<div class="space">
+<form method="POST" autocomplete="off"  enctype="multipart/form-data">
+    {% csrf_token %}
+    <table class="giver">
+        <tr>
+            <td>TOPIC :</td>
+            <td>{{ form.topic }}</td>
+        </tr>
+        <tr>
+            <td>DATE & TIME :</td>
+            <td>{{ form.date }}</td>
+        </tr>
+        <tr>
+            <td>VIDEO FILES :</td>
+            <td>{{ form.uploads }}</td>
+        </tr>
+         <tr>
+             <td><input type="submit"  name="LOGIN" class="login"  value="UPLOAD"></td>
+        </tr>
+    </table>
+</form>
+</div>
+</body>
+{% endblock %}

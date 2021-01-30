@@ -1,0 +1,60 @@
+{% extends 'user/base.html' %}
+{% block userblock %}
+{% load staticfiles %}
+    <style>
+         #customers{
+       font-family:Abel;
+       border-collapse:collapse;
+       width:100%;
+       font-size:20px;
+       }
+       #customers td, #customers th{
+       border:1px solid #ddd;
+       padding:8px;
+       }
+       #customers tr:nth-child(even)
+       {background-color:#f2f2f2;}
+       #customers tr:hover {background-color: white;}
+       #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: black  ;
+    color: white;
+}
+
+    </style>
+
+</head>
+<body>
+<div class="space">
+<form method="POST">
+<table id="customers">
+    <tr>
+        <th>TOPIC</th>
+         <th>DATE & TIME</th>
+        <th>VIDEOS</th>
+        <th>REQUEST STATUS</th>
+
+    </tr>
+    <tr>
+    {% for d in objects %}
+        <td>{{d.regid.name}}</td>
+        <td>{{d.reqid.topic}}</td>
+        <td>{{d.reqid.uploads}}</td>
+
+        {% if d.reqstatus == "accept" %}
+        <td><a href="{{d.reqid.uploads.url}}" style="color:black" download>DOWNLOAD</a></td>
+        {% else %}
+        <td style="color:black">rejected</td>
+        {% endif %}
+
+    </tr>
+    <tr>
+    {% endfor %}
+    </tr>
+</table>
+</form></div>
+
+</body>
+{% endblock %}

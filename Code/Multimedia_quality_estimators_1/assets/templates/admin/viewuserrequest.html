@@ -1,0 +1,58 @@
+{% extends 'admin/base1.html' %}
+{% block adminblock %}
+{% load staticfiles %}
+    <style>
+         #customers{
+       font-family:Abel;
+       border-collapse:collapse;
+       width: 100%;
+       font-size:20px;
+       }
+       #customers td, #customers th{
+       border:1px solid #ddd;
+       padding:8px;
+       background-color: cadetblue;
+       }
+
+       #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: black  ;
+    color: white;
+}
+
+    </style>
+
+</head>
+<body>
+<div class="space">
+<form method="POST">
+<table id="customers">
+    <tr>
+        <th>TOPIC</th>
+         <th>DATE & TIME</th>
+        <th>VIDEOS</th>
+        <th>REQUEST STATUS</th>
+        <th>ACCEPT</th>
+        <th>REJECT</th>
+
+    </tr>
+    <tr>
+    {% for d in objects %}
+        <td>{{d.regid.name}}</td>
+        <td>{{d.reqid.topic}}</td>
+        <td>{{d.reqid.uploads}}</td>
+        <td>{{d.reqstatus}}</td>
+        <td><a href="{% url 'accept' d.id %}">OTP Will Sended in Your MailId </a></td>
+        <td><a href="{% url 'reject' d.id %}">You too much Downloaded</a></td>
+    </tr>
+    <tr>
+
+    {% endfor %}
+    </tr>
+</table>
+</form></div>
+
+</body>
+{% endblock %}

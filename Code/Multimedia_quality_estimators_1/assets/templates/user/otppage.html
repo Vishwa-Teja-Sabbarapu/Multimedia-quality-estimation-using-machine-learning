@@ -1,0 +1,43 @@
+{% extends 'user/base.html' %}
+{% block userblock %}
+{% load staticfiles %}
+    <style>
+        .giver
+          {
+          color: darkgrey;
+          font-family: cooper;
+          padding: 50px;
+          margin-right: 500px;
+          }
+          .space
+      {
+            padding:10px;
+            border-radius:10px;
+      }
+      input {
+    padding: 10px 10px;
+    border-radius:10px;
+    font-family:Abel;
+    font-size:20px;
+
+}
+
+
+    </style>
+
+<body>
+
+<form method="POST">
+    {% csrf_token %}
+    <table class="giver">
+        <tr>
+            <td>OTP RECEIVER :</td>
+            <td><input type="text" name="otp" value="" placeholder="Enter OTP Number"></td>
+        </tr>
+             <td><input type="submit" name="submit" class="login"  value="SUBMIT"></td>
+        </tr>
+    </table>
+
+</form>
+</body>
+{% endblock %}

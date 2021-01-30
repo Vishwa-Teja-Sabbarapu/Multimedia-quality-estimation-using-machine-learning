@@ -1,0 +1,50 @@
+{% extends 'user/base.html' %}
+{% block userblock %}
+{% load staticfiles %}
+<style>
+    .giver
+          {
+          color: darkgrey;
+          font-family: cooper;
+          padding: 50px;
+          margin-right: 500px;
+          }
+          .space
+      {
+            padding:10px;
+            border-radius:10px;
+      }
+      input {
+    padding: 10px 10px;
+    border-radius:10px;
+    font-family:Abel;
+    font-size:20px;
+
+}
+</style>
+<body>
+<div class="space">
+<form method="POST">
+    {%csrf_token%}
+    <table class="giver">
+        <tr>
+            <td>YOUR NAME :</td>
+            <td><input type="text" name="name"   value="{{ obje.name}}" readonly ></td>
+        </tr>
+        <tr>
+            <td>EMAIL :</td>
+            <td><input type="email" name="email"  value="{{obje.email}}" readonly></td>
+        </tr>
+        <tr>
+            <td>PASSWORD :</td>
+            <td><input type="password" name="password"  value="{{obje.password}}" readonly></td>
+        </tr>
+        <tr>
+            <td>PHONE NUMBER :</td>
+            <td><input type="text" name="phoneno"  value="{{obje.phoneno}}" readonly></td>
+        </tr>
+    </table>
+</form>
+</div>
+</body>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'user/base.html' %}
+{% block userblock %}
+{% load staticfiles %}
+    <style>
+        #customers {
+    font-family: Abel;
+    border-collapse: collapse;
+    width: 100%;
+    font-size:20px;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+
+    </style>
+
+<body>
+
+<div class="">
+<form method="POST">
+    {%csrf_token%}
+    <table id="customers">
+        <tr>
+            <th>TOPIC</th>
+            <th>DATE & TIME</th>
+            <th>VIDEOS</th>
+            <th>REQUEST</th>
+            <th>ENTER YOUR OTP </th>
+        </tr>
+        <tr>
+        {% for object in list_object %}
+            <td>{{object.topic}}</td>
+            <td>{{object.date}}</td>
+            <td>{{object.uploads}}</td>
+            <td  style="color:white"><input type="submit" name="submit" value="Request to Admin" class="{% if sts is sent %}hidethis{% endif %}" style="color:black"></td>
+            <td  style=""> <a href="{% url 'otppage' object.id %}" class="{% if sts is sent %}viewthis{% endif %}" style="color:black;text-decoration:none">OTP RECEIVE</a></td>
+        </tr>
+        <tr>
+
+        </tr>
+        {% endfor %}
+    </table>
+</form></div>
+</body>
+{% endblock %}

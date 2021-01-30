@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body, html {
+        height: 100%;
+        margin: 0;
+        }
+        body{
+        background: url("{% static 'login3.jpg' %}");
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        }
+        input {
+        padding: 10px 10px;
+        border-radius:5px;
+        margin:10px;
+        }
+        .table {
+        display: table;
+        border-collapse: separate;
+        border-spacing: 2px;
+        border-color: grey;
+        margin-top: 128px;
+        margin-left: 500px;
+        font-family: monospace;
+        font-size: xx-large;
+        }
+        .register{
+        position:absolute;
+        top:50%;
+        left:73%;
+        transform: translate(-50%, -50%);
+        background-color:teal;
+        font-family: cooper;
+        color:white;
+        font-size:16px;
+        padding: 12px 24px;
+        cursor: pointer;
+        border-radius: 5px;
+        text-align: center;
+        margin-top: 191px;
+        margin-left: -409px;
+        }
+
+        .register:hover{
+        background-color: black;
+        }
+        h1{
+        font-family:monospace;
+        text-shadow: 0 0 31px white, 0 0 51px white;
+        text-align: center;
+        color: #ff3e01;
+        font-size: 42px;
+        }
+    </style>
+</head>
+<body>
+<h1>Toward Better Statistical Validation of Machine
+Learning-Based Multimedia Quality Estimators</h1>
+<form method="POST">
+    {% csrf_token %}
+    <table class="table">
+        <tr>
+            <td>USERNAME :</td>
+            <td><input type="text" name="nme" value="" placeholder="Enter Valid Name"></td>
+        </tr>
+        <tr>
+            <td>PASSWORD :</td>
+            <td><input type="password" name="pwd" value="" placeholder="Enter Valid Password"></td>
+        </tr>
+        <tr>
+            <td><input type="image" src="static/login.png" width="110" hight="70" name="login" value="LOGIN" ><br></td>
+            <td><p>Don't have an account?</p></td>
+            <td><a href="uregister_page" style="font-family:cooper; color:darkgrey; padding:px" ><img src="static/signup.png" width="100" hight="70"></a></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
